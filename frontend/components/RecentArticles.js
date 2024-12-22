@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { LoadingComponent } from "./Loading";
+import formatDate from "@/lib/formatDate";
 
 const tags = ["CSS", "JavaScript", "Web Development"];
 
@@ -36,7 +37,7 @@ function RecentArticles({ articles, isLoading }) {
                 ))}
               </div>
               <p className="text-sm text-gray-500">
-                By {article.user.name} on {article.createdAt}
+                By {article.user.name} on {formatDate(article.createdAt)}
               </p>
             </CardContent>
             <CardFooter>

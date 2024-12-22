@@ -8,6 +8,7 @@ import { api } from "@/config/api";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import Link from "next/link";
 import { LoadingComponent } from "@/components/Loading";
+import formatDate from "@/lib/formatDate";
 
 const ProfilePage = () => {
   const { user } = useAuth();
@@ -119,7 +120,7 @@ const ProfilePage = () => {
                       </div>
                       <div className="items-center space-x-6 hidden md:flex">
                         <p className="text-sm text-gray-500">
-                          Published on {article.createdAt}
+                          Published on {formatDate(article.createdAt)}
                         </p>
                       </div>
                     </div>

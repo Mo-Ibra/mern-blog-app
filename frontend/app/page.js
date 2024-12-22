@@ -33,7 +33,6 @@ function Home() {
 
   return (
     <>
-      <FeaturedPost />
       <RecentArticles articles={articles} isLoading={isLoading} />
     </>
   );

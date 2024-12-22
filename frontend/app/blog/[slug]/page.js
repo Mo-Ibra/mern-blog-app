@@ -15,6 +15,7 @@ import { useParams } from "next/navigation";
 import { toast, ToastContainer } from "react-toastify";
 import { LoadingComponent } from "@/components/Loading";
 import { useAuth } from "@/context/AuthContext";
+import formatDate from "@/lib/formatDate";
 
 const Page = () => {
   const [article, setArticle] = useState({});
@@ -143,6 +144,7 @@ const Page = () => {
             </CardContent>
           </Card>
         )}
+
         {/* Comments Section */}
         <div className="mt-6">
           <Card className="w-full">
@@ -169,11 +171,11 @@ const Page = () => {
                               {comment.user.name}
                             </p>
                           )}
-                          <p className="text-gray-500 text-sm">
-                            {comment.createdAt}
+                          <p className="text-gray-500 text-sm hidden md:block">
+                            {formatDate(comment.createdAt)}
                           </p>
                         </div>
-                        <p className="text-gray-800 mt-2">{comment.content}</p>
+                        <p className="text-gray-800 mt-2 max-w-full overflow-hidden text-ellipsis">{comment.content}</p>
                       </li>
                     ))}
                   </ul>
